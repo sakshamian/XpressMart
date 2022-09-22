@@ -4,8 +4,8 @@ import { Row, Col } from 'react-bootstrap';
 const Footer = () => {
   return (
     <footer>
-      <Row>
-        <Col className='text-center py-3'>Copyright &copy; XpressMart</Col>
+      <Row className='m-0'>
+        <Col className='text-center py-2'>Copyright &copy; XpressMart</Col>
       </Row>
     </footer>
   );

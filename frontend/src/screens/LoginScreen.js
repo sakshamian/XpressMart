@@ -11,7 +11,7 @@ const LoginScreen = () => {
   const { search } = useLocation();
   let navigate = useNavigate();
 
-  const redirect = search ? search.split('=')[1] : '/';
+  const redirect = search ? search.split('=')[1] : '';
 
   const [data, setData] = useState({
     email: '',
@@ -24,7 +24,7 @@ const LoginScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate(`/${redirect}`);
     }
   }, [navigate, userInfo, redirect]);
 

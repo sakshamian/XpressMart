@@ -8,32 +8,31 @@ const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
     shippingAddress,
-    paymentMethod,
     itemsPrice,
     taxPrice,
     shippingPrice,
     totalPrice,
+    paymentMethod,
   } = req.body;
 
   if (orderItems && orderItems.length === 0) {
-    res.status(404);
-    throw new Error('No order items');
+    res.status(400);
+    throw new Error("No order items");
+    return;
   } else {
-    const Order = new Order({
+    const order = new Order({
       orderItems,
       user: req.user._id,
       shippingAddress,
-      paymentMethod,
       itemsPrice,
       taxPrice,
       shippingPrice,
       totalPrice,
+      paymentMethod,
     });
+    const createdOrder = await order.save();
+    res.status(201).json(createdOrder);
   }
-
-  const createdOrder = new Order.save();
-
-  res.status(201).json(createdOrder);
 });
 
 // @desc Fetch Order by Id
@@ -46,7 +45,7 @@ const getOrderById = asyncHandler(async (req, res) => {
   );
 
   if (order) {
-    req.json(order);
+    res.json(order);
   } else {
     res.status(401);
     throw new Error('Order not found');
