@@ -15,8 +15,10 @@ import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import XpressCoin from './screens/Xpresscoin';
 import PaymentScreen from './screens/PaymentScreen'; 
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import CoinAct from './screens/XpressCoin-activites'
 
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
               element={<ProductEditScreen />}
             />
             <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="/xpresscoin" element={<XpressCoin />} />
+            <Route path="/Coin-activites" element={<CoinAct />} />
             <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/placeorder" element={<PlaceOrderScreen />} />
           </Routes>

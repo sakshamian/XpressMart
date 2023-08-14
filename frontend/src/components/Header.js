@@ -48,6 +48,9 @@ const Header = () => {
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
+                  <LinkContainer to="/xpresscoin">
+                    <NavDropdown.Item>XCoin Hub</NavDropdown.Item>
+                  </LinkContainer>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
